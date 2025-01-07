@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 const LoginContainer = styled.div`
   width: 300px;
@@ -48,23 +49,47 @@ const Button = styled.button`
 `;
 
 const Login = () => {
-  return (
-    <LoginContainer>
-      <Title>로그인</Title>
-      <Form>
-        <Label htmlFor="email">이메일</Label>
-        <Input type="email" id="email" placeholder="이메일" />
-        
-        <Label htmlFor="password">비밀번호</Label>
-        <Input type="password" id="password" placeholder="비밀번호" />
+  const clientId = "YOUR_GOOGLE_CLIENT_ID"; // Google Cloud에서 발급받은 Client ID
 
-        <Button bgColor="#7a7a7a">로그인</Button>
-        <Button bgColor="#fff" style={{ color: '#7a7a7a', border: '1px solid #ccc' }}>
-          Google 간편로그인
-        </Button>
-        <Button bgColor="#bdbdbd">회원가입</Button>
-      </Form>
-    </LoginContainer>
+  const handleGoogleLoginSuccess = (response) => {
+    console.log("Google Login Success", response);
+    // 원하는 로직 추가: 예) 백엔드로 토큰 전송
+  };
+
+  const handleGoogleLoginFailure = (response) => {
+    console.error("Google Login Failure", response);
+  };
+
+  return (
+    <GoogleOAuthProvider clientId={clientId}>
+      <LoginContainer>
+        <Title>로그인</Title>
+        <Form>
+          <Label htmlFor="email">이메일</Label>
+          <Input type="email" id="email" placeholder="이메일" />
+          
+          <Label htmlFor="password">비밀번호</Label>
+          <Input type="password" id="password" placeholder="비밀번호" />
+
+          <Button bgColor="#7a7a7a">로그인</Button>
+          <GoogleLogin
+            onSuccess={handleGoogleLoginSuccess}
+            onError={handleGoogleLoginFailure}
+            render={(renderProps) => (
+              <Button
+                bgColor="#fff"
+                style={{ color: '#7a7a7a', border: '1px solid #ccc' }}
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                Google 간편로그인
+              </Button>
+            )}
+          />
+          <Button bgColor="#bdbdbd">회원가입</Button>
+        </Form>
+      </LoginContainer>
+    </GoogleOAuthProvider>
   );
 };
 
