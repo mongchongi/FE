@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { Link } from 'react-router';
 
 const LoginContainer = styled.div`
   width: 300px;
@@ -48,6 +49,22 @@ const Button = styled.button`
   }
 `;
 
+const LinkButton = styled(Link)`
+  display: inline-block;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #bdbdbd;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
 const Login = () => {
   const clientId = "YOUR_GOOGLE_CLIENT_ID"; // Google Cloud에서 발급받은 Client ID
 
@@ -86,7 +103,7 @@ const Login = () => {
               </Button>
             )}
           />
-          <Button bgColor="#bdbdbd">회원가입</Button>
+          <LinkButton to="/signup">회원가입</LinkButton>
         </Form>
       </LoginContainer>
     </GoogleOAuthProvider>
