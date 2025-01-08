@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   margin-top: 50px;
   color: black;
-  transition: all 0.5s;
+  transition: all 0.3s;
 
   & h3 {
     font-size: 1.5rem;
@@ -78,7 +78,7 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   &:visited {
