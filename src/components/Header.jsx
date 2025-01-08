@@ -9,7 +9,7 @@ const Header = () => {
 
   let navbar = <Navbar />;
 
-  if (pathname !== '/') {
+  if (pathname === '/login' || pathname === '/signup') {
     navbar = undefined;
   }
   return (
