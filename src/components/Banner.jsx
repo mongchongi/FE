@@ -18,8 +18,6 @@ export default Banner;
 
 const BannerArea = styled.section`
   width: 1280px;
-  margin: 140px auto 0;
-  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
