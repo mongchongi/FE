@@ -1,5 +1,11 @@
+import TouristAttractionList from '../components/TouristAttractionList';
+
 const TouristAttraction = () => {
-  return <div>TouristAttraction</div>;
+  return (
+    <>
+      <TouristAttractionList />
+    </>
+  );
 };
 
 export default TouristAttraction;
