@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { Link, Outlet, useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import styled from 'styled-components';
 import Navbar from './Navbar';
 
@@ -26,8 +26,6 @@ const Header = () => {
         </LanguageArea>
         {navbar}
       </HeaderArea>
-
-      <Outlet />
     </>
   );
 };
@@ -43,7 +41,7 @@ const HeaderArea = styled.header`
   display: flex;
   align-items: center;
   gap: 30px;
-  z-index: 1000;
+  z-index: 1;
 `;
 
 const TItle = styled.h1`
