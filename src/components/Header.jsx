@@ -26,8 +26,6 @@ const Header = () => {
         </LanguageArea>
         {navbar}
       </HeaderArea>
-
-      <Outlet />
     </>
   );
 };
